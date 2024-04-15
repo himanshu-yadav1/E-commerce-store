@@ -4,11 +4,28 @@ import connectDB from './db/index.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
+import authRouter from './routes/auth.routes.js'
 
 const app = express()
 
-app.get('/', (req, res)=> {
-    res.send("test")
+app.use(express.json())
+
+app.use('/api/v1/auth', authRouter)
+
+
+app.use((error, req, res, next) => {
+    const statusCode = error.statusCode || 500
+    const message = error.message || "Internal server error"
+
+    return res
+        .status(statusCode)
+        .json(
+            {
+                success: false,
+                statusCode,
+                message
+            }
+        )
 })
 
 connectDB()
