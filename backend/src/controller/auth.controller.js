@@ -42,6 +42,46 @@ const signUp = async (req, res, next) => {
 
 }
 
+const signIn = async (req, res, next) => {
+    try {
+        const {username, email, password} = req.body
+    
+        if(!username && !email){
+            return next(errorHandler(400, "Enter username or email"))
+        }
+    
+        let userFound
+        if(username){
+            userFound = await User.findOne({username})
+            if(!userFound){
+                return next(errorHandler(404, "No account found with this username"))
+            }
+        }
+        else{
+            userFound = await User.findOne({email})
+            if(!userFound){
+                return next(errorHandler(404, "No account found with this email"))
+            }
+        }
+
+        const isPasswordCorrect = await bcrypt.compare(password, userFound.password)
+
+        if(!isPasswordCorrect){
+            return next(errorHandler(400, "Invalid Credentials"))
+        }
+
+        const user = await User.findById(userFound._id).select("-password")
+
+        res
+        .status(200)
+        .json({user, message: "Login successfull"})
+
+    } catch (error) {
+        next(error)
+    }
+}
+
 export {
-    signUp
+    signUp,
+    signIn
 }
