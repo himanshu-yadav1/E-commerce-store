@@ -1,6 +1,7 @@
 import { User } from "../models/user.model.js"
 import bcrypt from 'bcryptjs'
 import errorHandler from "../utils/ErrorHandler.js"
+import jwt from 'jsonwebtoken'
 
 
 const signUp = async (req, res, next) => {
@@ -72,8 +73,11 @@ const signIn = async (req, res, next) => {
 
         const user = await User.findById(userFound._id).select("-password")
 
+        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET)
+
         res
         .status(200)
+        .cookie('access_token', token, { httpOnly: true})
         .json({user, message: "Login successfull"})
 
     } catch (error) {
