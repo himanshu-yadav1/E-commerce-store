@@ -10,6 +10,12 @@ function SignUp() {
             password: ''
         }
     )
+    const [signupResponse, setSignupResponse] = useState(
+        {
+            responseCode: null,
+            responseMessage: ''
+        }
+    )
 
     const navigate = useNavigate()
 
@@ -21,6 +27,12 @@ function SignUp() {
 
     const handleSignUp = async (e) => {
         e.preventDefault()
+        setSignupResponse(
+            {
+                responseCode: null,
+                responseMessage: ''
+            }
+        )
 
         fetch('/api/v1/auth/signup', {
             method: "POST",
@@ -32,7 +44,12 @@ function SignUp() {
         })
         .then((data) => {
             if(data.success == false){
-                console.log(data.message)
+                setSignupResponse(
+                    {
+                        responseCode: data.statusCode,
+                        responseMessage: data.message
+                    }
+                )
                 return
             }
 
@@ -45,11 +62,26 @@ function SignUp() {
                 }
             )
 
-            console.log(data)
-            navigate('/signin')
+            setSignupResponse(
+                {
+                    responseCode: data.statusCode,
+                    responseMessage: 'Account created redirecting to login page ...'
+                }
+            )
+
+            setTimeout(() => {
+                navigate('/signin')
+            }, 3000);
+            
         })
         .catch((error) => {
             console.log(error)
+            setSignupResponse(
+                {
+                    responseCode: error.statusCode,
+                    responseMessage: error.message
+                }
+            )
         })
     }
 
@@ -60,7 +92,7 @@ function SignUp() {
                     <img className='h-[40vw]' src="/images/image-signup.png"/>
                 </div>
 
-                <div className='p-5'>
+                <div className='p-5 w-[34%]'>
                     <h1 className='text-3xl text-[#845EC2] font-semibold text-center'>
                         Welcome to 
                         <span className='font-bold font-serif text-[#402768]'> SwiftStore</span>
@@ -72,6 +104,10 @@ function SignUp() {
                         <input value={formData.email} onChange={handleChange} className='p-3 rounded-xl focus:outline-none text-violet-900' type="email" id="email" placeholder='Email' />
                         <input value={formData.password} onChange={handleChange} className='p-3 rounded-xl focus:outline-none text-blue-600' type="password" id="password" placeholder='Password' />
                         
+                        {signupResponse.responseMessage &&
+                                <p style={{color: signupResponse.responseCode > 299 ? '#ef4444' : '#22c55e'}} className='text-center mt-2 text-sm'>{signupResponse.responseMessage}</p>
+                        }
+
                         <button type='submit' className="relative mt-3 uppercase py-2 px-8 text-[#402768] text-base font-bold nded-full overflow-hidden bg-white rounded-xl transition-all duration-400 ease-in-out shadow-sm hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-500 before:to-blue-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0" >
                             sign up
                         </button>
