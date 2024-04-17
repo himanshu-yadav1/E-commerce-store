@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
 function SignUp() {
@@ -18,6 +19,14 @@ function SignUp() {
     )
 
     const navigate = useNavigate()
+
+    const { currentUser } = useSelector((state) => state.user)
+    useEffect(() => {
+        if(currentUser){
+            navigate('/')
+        }
+    },[])
+
 
     const handleChange = (e) => {
         setFormData(

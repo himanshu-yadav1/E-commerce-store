@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import {
@@ -16,10 +16,18 @@ function SignIn() {
         }
     )
 
-    const { error } = useSelector((state) => state.user)
+    const { currentUser, error } = useSelector((state) => state.user)
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        if(currentUser){
+            navigate('/')
+        }
+
+        dispatch(signInFailure(null))
+    }, [])
 
 
     const handleChange = (e) => {
@@ -30,7 +38,7 @@ function SignIn() {
 
     const handleSignIn = async (e) => {
         e.preventDefault()
-        dispatch(signInFailure())
+        dispatch(signInFailure(null))
 
         fetch('/api/v1/auth/signin', {
             method: "POST",
