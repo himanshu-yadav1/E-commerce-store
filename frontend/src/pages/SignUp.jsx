@@ -95,13 +95,13 @@ function SignUp() {
     }
 
     return (
-        <div className='flex bg-gradient-to-br from-gray-50 to-amber-200 h-[100vh] w-[100vw] p-10'>
+        <div className='flex bg-gradient-to-br from-gray-50 to-amber-200 h-[100vh] w-full p-10'>
             <div className='flex justify-center sm:justify-start w-full'>
                 <div className='hidden sm:flex justify-center w-[60%]'>
                     <img className='h-[40vw]' src="/images/image-signup.png"/>
                 </div>
 
-                <div className='p-5 w-[34%]'>
+                <div className='p-5 sm:w-[34%]'>
                     <h1 className='text-3xl text-[#845EC2] font-semibold text-center'>
                         Welcome to 
                         <span className='font-bold font-serif text-[#402768]'> SwiftStore</span>
