@@ -1,9 +1,10 @@
 import React from 'react'
+import Menu from '../components/Menu'
 
 function Home() {
     return (
         <div>
-            This is home page
+            <Menu/>
         </div>
     )
 }
