@@ -5,8 +5,13 @@ import '../index.css'
 import { TiMinus, TiPlus } from 'react-icons/ti'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { FiPlus } from 'react-icons/fi'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleMenu } from '../features/menuSlice'
 
 function Menu() {
+
+    const { isVisible } = useSelector((state) => state.menu)
+    const dispatch = useDispatch()
 
     const [hoveredLink, setHoveredLink] = useState('')
     const [menuVisibleOnSmallScreen, setMenuVisibleOnSmallScreen] = useState('')
@@ -30,11 +35,11 @@ function Menu() {
     
     return (
         <>
-            <div className={` flex flex-col sm:flex-row sm:justify-center sm:h-auto gap-0 sm:gap-5 md:gap-10 px-5 sm:px-20 border sm:border-none h-[100vh] w-[78%] sm:w-full whitespace-nowrap text-xl sm:text-base`}>
+            <div className={` ${isVisible ? 'flex' : 'hidden'} sm:flex flex-col sm:flex-row sm:justify-center sm:h-auto gap-0 sm:gap-5 md:gap-10 px-5 sm:px-20 border sm:border-none h-[100vh] w-[78%] sm:w-full whitespace-nowrap text-xl sm:text-base duration-500 animate-in sm:animate-none slide-in-from-left-96`}>
                 <div className='sm:hidden flex justify-between items-center mt-2 border-b py-3'>
                     <h2 className=' uppercase text-xl text-[#D65DB1]'>Menu</h2>
 
-                    <button onClick={'/'}>
+                    <button onClick={() => dispatch(toggleMenu())}>
                         <FiPlus className='rotate-45 text-3xl'/>
                     </button>
                 </div>

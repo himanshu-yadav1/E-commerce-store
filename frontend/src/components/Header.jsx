@@ -1,10 +1,13 @@
 import { CiGrid41, CiHome, CiMenuBurger, CiSearch, CiShoppingCart, CiUser } from "react-icons/ci"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toggleMenu } from "../features/menuSlice";
 
 function Header() {
 
     const { currentUser } = useSelector((state) => state.user)
+
+    const dispatch = useDispatch()
 
     return (
         <header className="flex justify-center sm:justify-between">
@@ -21,9 +24,9 @@ function Header() {
                 </form>
 
                 <div className="w-full sm:w-[20%] flex justify-between sm:justify-end sm:gap-10 text-3xl text-[#845EC2]">  
-                    <Link to={'/'} className="order-1 hover:text-[#3f2766] sm:hidden hover:scale-105">
-                        <CiMenuBurger />
-                    </Link>                    
+                    <div className="order-1 hover:text-[#3f2766] sm:hidden hover:scale-105">
+                        <CiMenuBurger onClick={() => dispatch(toggleMenu())} />
+                    </div>                    
 
                     {currentUser &&
                         (
@@ -38,13 +41,13 @@ function Header() {
                         <CiHome />
                     </Link>
 
-                    <Link to={currentUser ? '/  ' : '/signin'} className="order-4 sm:order-3 hover:text-[#3f2766] hover:scale-105">
+                    <Link to={currentUser ? '/' : '/signin'} className="order-4 sm:order-3 hover:text-[#3f2766] hover:scale-105">
                         <CiUser />
                     </Link>
 
-                    <Link to={'/'} className="order-5 hover:text-[#3f2766] sm:hidden hover:scale-105">
+                    <div className="order-5 hover:text-[#3f2766] sm:hidden hover:scale-105">
                         <CiGrid41 />
-                    </Link>
+                    </div>
                     
                 </div>
             </div>
