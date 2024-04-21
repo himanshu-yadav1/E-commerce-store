@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    isVisible: false
+    isMenuVisible: false
 }
 
 const menuSlice = createSlice({
@@ -9,7 +9,7 @@ const menuSlice = createSlice({
     initialState,
     reducers: {
         toggleMenu: (state) => {
-            state.isVisible = !state.isVisible;
+            state.isMenuVisible = !state.isMenuVisible;
         }
     }
 })
