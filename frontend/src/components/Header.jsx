@@ -2,6 +2,7 @@ import { CiGrid41, CiHome, CiMenuBurger, CiSearch, CiShoppingCart, CiUser } from
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toggleMenu } from "../features/menuSlice";
+import { toggleCategoryPanelVisibility } from "../features/categorySlice";
 
 function Header() {
 
@@ -24,7 +25,7 @@ function Header() {
                 </form>
 
                 <div className="w-full sm:w-[20%] flex justify-between sm:justify-end sm:gap-10 text-3xl text-[#845EC2]">  
-                    <div className="order-1 hover:text-[#3f2766] sm:hidden hover:scale-105">
+                    <div className="order-1 hover:text-[#3f2766] sm:hidden hover:scale-105 cursor-pointer">
                         <CiMenuBurger onClick={() => dispatch(toggleMenu())} />
                     </div>                    
 
@@ -45,8 +46,8 @@ function Header() {
                         <CiUser />
                     </Link>
 
-                    <div className="order-5 hover:text-[#3f2766] sm:hidden hover:scale-105">
-                        <CiGrid41 />
+                    <div className="order-5 hover:text-[#3f2766] sm:hidden hover:scale-105 cursor-pointer">
+                        <CiGrid41 onClick={() => dispatch(toggleCategoryPanelVisibility())}/>
                     </div>
                     
                 </div>
