@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@media (max-width: 640px) {
-    html{
-        font-family: serif;
-    }
+html{
+    font-family: serif;
 }
