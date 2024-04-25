@@ -19,7 +19,7 @@ function Category() {
 
     return (
         <>
-            <div className={`flex flex-col p-7 sm:p-5 h-full w-[78%] sm:w-full sm:border bg-white rounded-xl`}>
+            <div className='flex flex-col p-7 sm:p-5 h-full w-[78%] sm:w-full sm:border bg-white rounded-xl'>
                 <div className='flex justify-between items-center border-b sm:border-none py-3 sm:py-0 pb-5 sm:pb-3'>
                     <h2 className='uppercase text-xl sm:text-lg sm:font-semibold text-[#D65DB1]'>Category</h2>
 
