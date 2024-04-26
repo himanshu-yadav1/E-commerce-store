@@ -1,15 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { toggleCategoryPanelVisibility } from '../features/categorySlice'
 
 import { FiMinus, FiPlus } from 'react-icons/fi'
 import { TiMinus, TiPlus } from 'react-icons/ti'
 
-function Category() {
-
-    const dispatch = useDispatch()
-
+function Category({ handleCategoryPanelVisibility }) {
 
     const [expandedCategory, setexpandedCategory] = useState('')
 
@@ -23,7 +18,7 @@ function Category() {
                 <div className='flex justify-between items-center border-b sm:border-none py-3 sm:py-0 pb-5 sm:pb-3'>
                     <h2 className='uppercase text-xl sm:text-lg sm:font-semibold text-[#D65DB1]'>Category</h2>
 
-                    <button onClick={() => dispatch(toggleCategoryPanelVisibility())} className='sm:hidden'>
+                    <button onClick={() => handleCategoryPanelVisibility(false)} className='sm:hidden'>
                         <FiPlus className='rotate-45 text-4xl'/>
                     </button>
 

@@ -3,12 +3,8 @@ import { Link } from 'react-router-dom'
 
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { FiPlus } from 'react-icons/fi'
-import { useDispatch } from 'react-redux'
-import { toggleMenu } from '../features/menuSlice'
 
-function Menu() {
-
-    const dispatch = useDispatch()
+function Menu({ handleMenuPanelVisibility }) {
 
     const [isCategoriesHovered, setIsCategoriesHovered] = useState(false)
     
@@ -18,7 +14,7 @@ function Menu() {
                 <div className='sm:hidden flex justify-between items-center border-b py-3 pb-5'>
                     <h2 className='uppercase text-xl text-[#D65DB1]'>Menu</h2>
 
-                    <button onClick={() => dispatch(toggleMenu())}>
+                    <button onClick={() => handleMenuPanelVisibility(false)}>
                         <FiPlus className='rotate-45 text-4xl'/>
                     </button>
 
@@ -81,7 +77,7 @@ function Menu() {
 
 
             {isCategoriesHovered &&
-                <div onMouseEnter={() => setIsCategoriesHovered(true)} onMouseLeave={() => setIsCategoriesHovered(false)} className='hidden sm:flex absolute top-10 left-[8vw] py-3 px-5 border border-b-2 rounded-xl shadow-md border-gray-300 duration-150 animate-in slide-in-from-bottom-8 bg-white'>
+                <div onMouseEnter={() => setIsCategoriesHovered(true)} onMouseLeave={() => setIsCategoriesHovered(false)} className='hidden sm:flex absolute left-[8vw] py-3 px-5 border border-b-2 rounded-xl shadow-md border-gray-300 duration-150 animate-in slide-in-from-bottom-8 bg-white'>
                     <div className='flex font-thin gap-8 text-gray-600'>
                         <div className='flex flex-col gap-1'>
                             <Link to={'/'} className='hover:text-[#D65DB1]'>Smartphone</Link>
