@@ -1,12 +1,14 @@
 import { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import HeaderBar from "../components/HeaderBar"
 import AccountItem from "../components/AccountItem"
+import { signOutSuccess } from "../features/userSlice"
 
 function Account() {
     const { currentUser } = useSelector((state) => state.user)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if(!currentUser){
@@ -14,6 +16,33 @@ function Account() {
         }
 
     }, [])
+
+
+    const handleSignOut = () => {
+
+        setTimeout(() => {
+
+            fetch('/api/v1/auth/signout')
+            .then((resp) => {
+                return resp.json()
+            })
+            .then((data) => {
+                if(data.success === false){
+                    console.log("Error occurred while signing out.")
+                    return
+                }
+
+                dispatch(signOutSuccess())
+                navigate('/')
+            })
+            .catch((error) => {
+                window.alert("Error occurred while signing out.")
+                console.log("Error occurred while signing out.", error)
+            })
+            
+        }, 400);
+    }
+
 
     return (
         <>
@@ -68,6 +97,12 @@ function Account() {
                         to="/"
                     />
 
+                </div>
+
+                <div onClick={handleSignOut} className="flex justify-center px-2 pt-5 sm:pt-3 pb-20 sm:pb-0">
+                    <button className="font-bold cursor-pointer transition-all bg-red-400 text-white px-6 py-2 rounded-lg hover:bg-red-500 sm:active:bg-red-700 active:brightness-90 active:translate-y-[2px] shadow-lg active:shadow-none">
+                        Sign Out
+                    </button>
                 </div>
 
             </div>

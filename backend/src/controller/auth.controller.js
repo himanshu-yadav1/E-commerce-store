@@ -85,7 +85,20 @@ const signIn = async (req, res, next) => {
     }
 }
 
+const signOut = async (req, res, next) => {
+    try {
+        res
+        .status(200)
+        .clearCookie('access_token')
+        .json({message: "sign out successfull"})
+        
+    } catch (error) {
+        next(error)
+    }
+}
+
 export {
     signUp,
-    signIn
+    signIn,
+    signOut
 }
