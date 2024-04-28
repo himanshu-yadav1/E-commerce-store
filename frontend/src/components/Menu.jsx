@@ -29,7 +29,7 @@ function Menu({ handleMenuPanelVisibility }) {
 
                     <div className='flex items-center gap-3 border-b sm:border-none py-[12px] sm:py-2'>
                         <img width='23' className='sm:hidden' src="images/menu/sell.png" alt="" />
-                        <Link className='sm:hover:text-[#D65DB1] sm:active:scale-105'>Sell</Link>
+                        <Link to={'/seller/dashboard'} className='sm:hover:text-[#D65DB1] sm:active:scale-105'>Sell</Link>
                     </div>
 
                     <div className='flex items-center gap-3 border-b sm:border-none py-[12px] sm:py-2'>

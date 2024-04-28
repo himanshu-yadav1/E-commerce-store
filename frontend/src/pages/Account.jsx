@@ -87,7 +87,7 @@ function Account() {
                         imageSrc="images/account/sell.png"
                         title="Sell on SwiftStore"
                         description="Start selling your products"
-                        to="/"
+                        to="/seller/dashboard"
                     />
 
                     <AccountItem 
