@@ -9,7 +9,8 @@ const sellerSchema = new mongoose.Schema(
         },
         storeName: {
             type: String,
-            required: true
+            required: true,
+            unique: true
         },
         listedProducts: [
             {

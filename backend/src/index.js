@@ -8,6 +8,7 @@ dotenv.config()
 
 import authRouter from './routes/auth.routes.js'
 import userRouter from './routes/user.routes.js'
+import sellerRouter from './routes/seller.routes.js'
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use(cookieParser())
 
 app.use('/api/v1/user', userRouter)
 app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/seller', sellerRouter)
 
 
 app.use((error, req, res, next) => {

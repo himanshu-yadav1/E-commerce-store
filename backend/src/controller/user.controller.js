@@ -11,6 +11,11 @@ const registerAsSeller = async(req, res, next) => {
         if(user.isSeller){
             return next(errorHandler(400, "You are already a seller"))
         }
+
+        const storeNameAlreadyUsed = await Seller.findOne({storeName})
+        if(storeNameAlreadyUsed){
+            return next(errorHandler(400, "Store with this name already exits."))
+        }
         
         const seller = await Seller.create({userId, storeName})
         if(!seller){
