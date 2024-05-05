@@ -7,7 +7,7 @@ function SidebarSellerDashboard({ handleSidebarVisibility }) {
             <div className='flex justify-between items-center py-3'>
                 <Link to={'/'} className='font-bold font-serif text-2xl sm:text-2xl text-[#402768]'>SwiftStore</Link>
 
-                <button onClick={() => handleSidebarVisibility(false)} className="sm:hidden p">
+                <button onClick={() => handleSidebarVisibility(false)} className="sm:hidden">
                     <FiPlus className='rotate-45 text-4xl'/>
                 </button>
 
