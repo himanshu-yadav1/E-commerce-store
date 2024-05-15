@@ -1,6 +1,7 @@
 import { Seller } from "../models/seller.model.js"
 import { User } from "../models/user.model.js"
 import errorHandler from "../utils/ErrorHandler.js"
+import bcrypt from 'bcryptjs'
 
 const registerAsSeller = async(req, res, next) => {
     try {
@@ -45,7 +46,64 @@ const registerAsSeller = async(req, res, next) => {
     
 }
 
+const updateUser = async(req, res, next) => {
+    try {
+        const userId = req.user.id
+        if(req.params.id != userId){
+            return next(errorHandler(404, "Unauthorized access"))
+        }
+
+        const { updatedName, updatedUsername, updatedEmail, updatedPassword } = req.body
+
+        let updateFields = {};
+
+        if(updatedName && updatedName != '' && updatedName != ' '){
+            updateFields.name = updatedName
+        }
+
+        if(updatedUsername && updatedUsername != '' && updatedUsername != ' '){
+            const usernameUsed = await User.findOne({username: updatedUsername})
+            if(usernameUsed){
+                return next(errorHandler(405, "Username already used"))
+            }
+
+            updateFields.username = updatedUsername
+        }
+
+        if(updatedEmail && updatedEmail != '' && updatedEmail != ' '){
+            const emailUsed = await User.findOne({email: updatedEmail})
+            if(emailUsed){
+                return next(errorHandler(405, "Email already used"))
+            }
+
+            updateFields.email = updatedEmail
+        }
+
+        if(updatedPassword && updatedPassword != '' && updatedPassword != ' '){
+            const hashedPassword = await bcrypt.hash(updatedPassword, 10)
+            updateFields.password = hashedPassword
+        }
+
+
+        const updatedUser = await User.findByIdAndUpdate(userId, {
+            $set:{ ...updateFields }
+
+        }, {new: true})
+
+        const user = await User.findById(updatedUser._id).select("-password")
+
+        res
+        .status(200)
+        .json({user, message: "Information updated successfully"})
+        
+
+    } catch (error) {
+        return next(error)
+    }
+}
+
 
 export{
-    registerAsSeller
+    registerAsSeller,
+    updateUser
 }
