@@ -18,14 +18,18 @@ const userSlice = createSlice({
         },
         signOutSuccess: (state) => {
             state.currentUser = null;
-        }
+        },
+        updateUser: (state, action) => {
+            state.currentUser = action.payload;
+        },
     }
 })
 
 export const {
     signInSuccess, 
     signInFailure,
-    signOutSuccess
+    signOutSuccess,
+    updateUser
 
 } = userSlice.actions
 

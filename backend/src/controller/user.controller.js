@@ -4,11 +4,18 @@ import errorHandler from "../utils/ErrorHandler.js"
 
 const registerAsSeller = async(req, res, next) => {
     try {
-        const userId = req.user.id
-        const { storeName } = req.body
+        const token = req.user.id
+        const { storeName, userId } = req.body 
+        if(!userId || token != userId){
+            return next(errorHandler(400, "Unauthorized access, Login to continue"))
+        }
 
-        const user = await User.findById(userId)
-        if(user.isSeller){
+        if(!storeName){
+            return next(errorHandler(404, "Store name is required"))
+        }
+        
+        const userFound = await User.findById(userId)
+        if(userFound.isSeller){
             return next(errorHandler(400, "You are already a seller"))
         }
 
@@ -24,10 +31,12 @@ const registerAsSeller = async(req, res, next) => {
         
         await User.findByIdAndUpdate(userId, {isSeller: true})
 
+        const user = await User.findById(userId)
+        console.log(user)
 
         res
         .status(200)
-        .json({seller, message: "Registered as selller Successfully"})
+        .json({seller, user, message: "Registered as seller Successfully"})
 
 
     } catch (error) {
