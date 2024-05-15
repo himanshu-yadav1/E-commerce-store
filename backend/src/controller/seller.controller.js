@@ -5,7 +5,7 @@ const getDetails = async (req, res, next) => {
     try {
         const { sellerId } = req.body
 
-        const seller = await Seller.findById(sellerId)
+        const seller = await Seller.findById(sellerId).populate('listedProducts')
         if(!seller){
             return next(errorHandler(404, "Seller data not found"))
         }
