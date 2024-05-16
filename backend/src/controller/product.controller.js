@@ -1,3 +1,4 @@
+import { isValidObjectId } from "mongoose"
 import { Product } from "../models/product.model.js"
 import { Seller } from "../models/seller.model.js"
 import errorHandler from "../utils/ErrorHandler.js"
@@ -51,6 +52,29 @@ const addProduct = async (req, res, next) => {
     .json({product, message: "Product added Successfully"})
 }
 
+const productDetails = async (req, res, next ) => {
+    try {
+        const productId = req.params.id
+    
+        if(!isValidObjectId(productId)){
+            return next(errorHandler(400, "Invalid product ID"));
+        }
+    
+        const product = await Product.findById(productId)
+        if(!product){
+            return next(errorHandler(404, "Product not found"))
+        }
+        
+        res
+        .status(200)
+        .send(product)
+        
+    } catch (error) {
+        return next(error)
+    }
+}
+
 export {
-    addProduct
+    addProduct,
+    productDetails
 }
