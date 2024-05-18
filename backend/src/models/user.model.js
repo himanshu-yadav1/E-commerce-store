@@ -23,6 +23,9 @@ const userSchema = new mongoose.Schema(
         isSeller: {
             type: Boolean,
             default: false
+        },
+        address: {
+            type: String
         }
 
     },{timestamps: true}
