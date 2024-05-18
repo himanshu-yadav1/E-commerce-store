@@ -5,7 +5,6 @@ const router = Router()
 // router.post('/getAllUsers', )
 // router.post('/getAllSellers', )
 // router.post('/approveSeller', )
-// router.post('/approveSeller', )
-// router.post('/updateOrder', )
+// router.put('/updateOrder', )
 
 export default router

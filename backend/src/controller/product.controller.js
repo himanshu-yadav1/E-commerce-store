@@ -78,7 +78,7 @@ const productDetails = async (req, res, next) => {
   }
 };
 
-const updateProduct = async (req, res) => {
+const updateProduct = async (req, res, next) => {
   try {
     const productId = req.params.id;
 
@@ -95,7 +95,7 @@ const updateProduct = async (req, res) => {
   }
 };
 
-const deleteProduct = async (req, res) => {
+const deleteProduct = async (req, res, next) => {
   try {
     const productId = req.params.id;
 
@@ -103,7 +103,12 @@ const deleteProduct = async (req, res) => {
       return next(errorHandler(400, "Invalid product ID"));
     }
 
-    const product = await Product.findByIdAndDelete(productId);
+    const product = await Product.findById(productId)
+    if(!product){
+      return next(errorHandler(404, "Product not found"));
+    }
+
+    await Product.findByIdAndDelete(productId);
     res.status(200).send({
       message: "Product Deleted Succesfully!",
     });
