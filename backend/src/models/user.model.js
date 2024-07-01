@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema(
             type: Boolean,
             default: false
         },
+        isAdmin: {
+            type: Boolean,
+            default: false
+        },
         address: {
             type: String
         },
@@ -31,7 +35,7 @@ const userSchema = new mongoose.Schema(
             {
                 product: {
                     type: mongoose.Schema.Types.ObjectId,
-                    ref: 'Product'                    
+                    ref: 'Product'
                 },
                 quantity: {
                     type: Number,
@@ -40,7 +44,7 @@ const userSchema = new mongoose.Schema(
             }
         ]
 
-    },{timestamps: true}
+    }, { timestamps: true }
 )
 
 export const User = mongoose.model('User', userSchema)
