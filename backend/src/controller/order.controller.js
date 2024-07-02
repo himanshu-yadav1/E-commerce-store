@@ -1,8 +1,8 @@
 import { isValidObjectId } from "mongoose";
-import errorHandler from "../utils/ErrorHandler";
-import { Order } from "../models/order.model";
-import { User } from "../models/user.model";
-import { Product } from "../models/product.model";
+import errorHandler from "../utils/ErrorHandler.js";
+import { Order } from "../models/order.model.js";
+import { User } from "../models/user.model.js";
+import { Product } from "../models/product.model.js";
 
 const cancelOrder = async (req, res, next) => {
   try {
@@ -41,7 +41,7 @@ const createOrder = async (req, res, next) => {
     }
     for (let item of orderItems) {
       const prdt = await Product.findById(item?.productId);
-      if (!product) {
+      if (!prdt) {
         return next(errorHandler(404, `Invalid Buyer ID ${item?.productId}`));
       }
     }
@@ -53,7 +53,8 @@ const createOrder = async (req, res, next) => {
       paymentMethod,
     });
 
-    const savedOrder = await Order.save();
+    const savedOrder = await newOrder.save();
+
     res.status(201).json({
       message: "Order Created Succesfully!",
       order: newOrder,
@@ -88,4 +89,4 @@ const getOrderDetails = async (req, res, next) => {
   }
 };
 
-export default cancelOrder;
+export  { cancelOrder, createOrder, getAllOrders, getOrderDetails}
