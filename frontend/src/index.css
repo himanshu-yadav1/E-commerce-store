@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
+html {
     font-family: serif;
+}
+
+:root {
+    --main-bg-color: #f9fafb;
+    --main-padding-x: 1rem;
+    --main-padding-y: 1rem;
+
+    --card-bg: white;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --card-border-radius: 1rem;
+    --card-padding-x: 1rem;
+    --card-padding-y: 0.75rem;
+    --card-border-color: #f7fafc;
+    --card-border-top: 1px;
 }

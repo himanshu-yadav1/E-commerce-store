@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function HeaderSellerDashboard({ handleSidebarVisibility }) {
     return (
-        <header className="flex justify-between py-4 px-7">
+        <header className="flex justify-between py-4 px-7 border-b-[1px]">
             <div className="flex items-center gap-8">
                 <div className="sm:hidden text-3xl active:scale-105">
                     <CiMenuBurger onClick={() => handleSidebarVisibility(true)}/>

@@ -28,7 +28,7 @@ function SellerDashboardLayout() {
                 <BecomeSeller /> :
 
                 <div className="sm:flex">
-                    <div className={`fixed sm:relative flex h-[100vh] sm:h-auto w-[100vw] sm:w-auto bg-white bg-opacity-50 duration-500 transition-transform sm:transition-none ${isSidebarVisible ? '-translate-x-0' : '-translate-x-[100%] sm:-translate-x-0'}`}>
+                    <div className={`z-50 fixed sm:relative flex h-[100vh] sm:h-auto w-[100vw] sm:w-auto bg-white bg-opacity-50 duration-500 transition-transform sm:transition-none ${isSidebarVisible ? '-translate-x-0' : '-translate-x-[100%] sm:-translate-x-0'}`}>
                         <SidebarSellerDashboard handleSidebarVisibility={handleSidebarVisibility}/>
                     </div>
 
