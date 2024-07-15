@@ -14,7 +14,7 @@ function SidebarSellerDashboard({ handleSidebarVisibility }) {
         {
             title: 'Products',
             img: '../images/seller-dashboard/products.png',
-            to: ''
+            to: '/seller/listed-products'
         },
         {
             title: 'Orders',
@@ -43,10 +43,10 @@ function SidebarSellerDashboard({ handleSidebarVisibility }) {
 
             <div className='text-slate-700 flex flex-col sm:text-xs md:text-base font-semibold sm:font-normal whitespace-nowrap mt-4'>
                 {tabs.map((tab) => (
-                    <div key={tab.title} onClick={() => setActiveTab(tab.title)} className={`flex items-center gap-3 py-[12px] px-3 pr-14 cursor-pointer  ${activeTab === tab.title ? 'sm:py-2 border rounded-xl bg-[#402768] text-white' : 'sm:py-2'} `}>
+                    <Link to={tab.to} key={tab.title} onClick={() => setActiveTab(tab.title)} className={`flex items-center gap-3 py-[12px] px-3 pr-14 cursor-pointer  ${activeTab === tab.title ? 'sm:py-2 border rounded-xl bg-[#402768] text-white' : 'sm:py-2'} `}>
                         <img width='23' src={tab.img} alt="" />
-                        <Link to={tab.to}>{tab.title}</Link>
-                    </div>
+                        <span>{tab.title}</span>
+                    </Link>
                 ))}
             </div>
         </div>

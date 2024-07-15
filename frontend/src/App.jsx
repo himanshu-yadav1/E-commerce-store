@@ -7,6 +7,7 @@ import Account from './pages/Account'
 import MainLayout from './layouts/MainLayout'
 import SellerDashboardLayout from './layouts/SellerDashboardLayout'
 import SellerDashboard from './pages/SellerDashboard'
+import ListedProducts from './pages/ListedProducts'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
 
         <Route path="/seller" element={<SellerDashboardLayout />}>
           <Route path='dashboard' element={<SellerDashboard />}/>
+          <Route path='listed-products' element={<ListedProducts />}/>
         </Route>
 
       </Routes>
