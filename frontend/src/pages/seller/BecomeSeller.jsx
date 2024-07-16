@@ -1,9 +1,9 @@
 import { useState } from "react"
-import Header from "../components/Header"
-import HeaderBar from "../components/HeaderBar"
+import Header from "../../components/user/Header"
+import HeaderBar from "../../components/user/HeaderBar"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { updateUser } from "../features/userSlice"
+import { updateUser } from "../../features/userSlice"
 
 function BecomeSeller() {
 

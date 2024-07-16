@@ -1,13 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import SignUp from './pages/SignUp'
-import SignIn from './pages/SignIn'
-import Account from './pages/Account'
+import Home from './pages/user/Home'
+import SignUp from './pages/user/SignUp'
+import SignIn from './pages/user/SignIn'
+import Account from './pages/user/Account'
 import MainLayout from './layouts/MainLayout'
 import SellerDashboardLayout from './layouts/SellerDashboardLayout'
-import SellerDashboard from './pages/SellerDashboard'
-import ListedProducts from './pages/ListedProducts'
+import SellerDashboard from './pages/seller/SellerDashboard'
+import ListedProducts from './pages/seller/ListedProducts'
 
 function App() {
   return (

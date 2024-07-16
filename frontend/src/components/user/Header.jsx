@@ -2,7 +2,7 @@ import { CiGrid41, CiHome, CiMenuBurger, CiSearch, CiShoppingCart, CiUser } from
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Category from "./Category";
-import Menu from "./Menu";
+import Menu from "../user/Menu";
 import { useState } from "react";
 
 function Header() {

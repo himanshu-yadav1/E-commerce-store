@@ -1,7 +1,7 @@
 import React from 'react'
-import Menu from '../components/Menu'
-import HeroSection from '../components/HeroSection'
-import HeaderBar from '../components/HeaderBar'
+import Menu from '../../components/user/Menu'
+import HeroSection from '../../components/user/HeroSection'
+import HeaderBar from '../../components/user/HeaderBar'
 
 function Home() {
     return (

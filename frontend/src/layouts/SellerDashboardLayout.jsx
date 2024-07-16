@@ -1,9 +1,9 @@
 import { Outlet, useNavigate } from "react-router-dom"
-import SidebarSellerDashboard from "../components/SidebarSellerDashboard"
+import SidebarSellerDashboard from "../components/seller/SidebarSellerDashboard"
 import { useEffect, useState } from "react"
-import HeaderSellerDashboard from "../components/HeaderSellerDashboard"
+import HeaderSellerDashboard from "../components/seller/HeaderSellerDashboard"
 import { useSelector } from "react-redux"
-import BecomeSeller from "../pages/BecomeSeller"
+import BecomeSeller from "../pages/seller/BecomeSeller"
 
 function SellerDashboardLayout() {
     const navigate = useNavigate()

@@ -5,7 +5,7 @@ import {
     signInSuccess,
     signInFailure
 
-} from '../features/userSlice'
+} from '../../features/userSlice'
 
 function SignIn() {
     const [formData, setFormData] = useState(
@@ -22,7 +22,7 @@ function SignIn() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if(currentUser){
+        if (currentUser) {
             navigate('/')
         }
 
@@ -32,7 +32,7 @@ function SignIn() {
 
     const handleChange = (e) => {
         setFormData(
-            {...formData, [e.target.id]: e.target.value}
+            { ...formData, [e.target.id]: e.target.value }
         )
     }
 
@@ -43,44 +43,44 @@ function SignIn() {
         fetch('/api/v1/auth/signin', {
             method: "POST",
             headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify(formData) 
+            body: JSON.stringify(formData)
         })
-        .then((resp) => {
-            return resp.json()
-        })
-        .then((data) => {
-            if(data.success == false){
-                dispatch(signInFailure(data.message))
-                return
-            }
-
-            setFormData(
-                {
-                    username: '',
-                    email: '',
-                    password: ''
+            .then((resp) => {
+                return resp.json()
+            })
+            .then((data) => {
+                if (data.success == false) {
+                    dispatch(signInFailure(data.message))
+                    return
                 }
-            )
 
-            dispatch(signInSuccess(data))
-            navigate('/')
-        })
-        .catch((error) => {
-            console.log(error)
-            dispatch(signInFailure(error.message))
-        })
+                setFormData(
+                    {
+                        username: '',
+                        email: '',
+                        password: ''
+                    }
+                )
+
+                dispatch(signInSuccess(data))
+                navigate('/')
+            })
+            .catch((error) => {
+                console.log(error)
+                dispatch(signInFailure(error.message))
+            })
     }
 
     return (
         <div className='flex bg-gradient-to-br from-gray-50 to-amber-200 h-[100vh] w-full p-10'>
             <div className='flex justify-center sm:justify-start w-full'>
                 <div className='hidden sm:flex justify-center w-[60%]'>
-                    <img className='h-[40vw]' src="/images/image-signin.png"/>
+                    <img className='h-[40vw]' src="/images/image-signin.png" />
                 </div>
 
                 <div className='p-5 sm:w-[34%]'>
                     <h1 className='text-3xl text-[#845EC2] font-semibold text-center'>
-                        Welcome to 
+                        Welcome to
                         <span className='font-bold font-serif text-[#402768]'> SwiftStore</span>
                     </h1>
 
@@ -89,7 +89,7 @@ function SignIn() {
                         <span className="text-gray-500 text-center">or</span>
                         <input value={formData.email} onChange={handleChange} className='p-3 rounded-xl focus:outline-none text-violet-900' type="email" id="email" placeholder='Email' />
                         <input value={formData.password} onChange={handleChange} className='p-3 mt-9 rounded-xl focus:outline-none text-blue-600' type="password" id="password" placeholder='Password' />
-                        
+
                         {error &&
                             <p className='text-red-500 text-center mt-2 text-sm'>{error}</p>
                         }

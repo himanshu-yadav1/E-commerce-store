@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import HeaderBar from "../components/HeaderBar"
-import AccountItem from "../components/AccountItem"
-import { signOutSuccess } from "../features/userSlice"
+import HeaderBar from "../../components/user/HeaderBar"
+import AccountItem from "../../components/user/AccountItem"
+import { signOutSuccess } from "../../features/userSlice"
 
 function Account() {
     const { currentUser } = useSelector((state) => state.user)
