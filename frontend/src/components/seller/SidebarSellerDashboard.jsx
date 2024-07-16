@@ -19,7 +19,7 @@ function SidebarSellerDashboard({ handleSidebarVisibility }) {
         {
             title: 'Orders',
             img: '../images/seller-dashboard/delivery-man.png',
-            to: ''
+            to: '/seller/orders'
         },
         {
             title: 'Reviews',

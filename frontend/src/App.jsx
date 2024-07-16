@@ -8,6 +8,7 @@ import MainLayout from './layouts/MainLayout'
 import SellerDashboardLayout from './layouts/SellerDashboardLayout'
 import SellerDashboard from './pages/seller/SellerDashboard'
 import ListedProducts from './pages/seller/ListedProducts'
+import Orders from './pages/seller/Orders'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/seller" element={<SellerDashboardLayout />}>
           <Route path='dashboard' element={<SellerDashboard />}/>
           <Route path='listed-products' element={<ListedProducts />}/>
+          <Route path='orders' element={<Orders />}/>
         </Route>
 
       </Routes>
