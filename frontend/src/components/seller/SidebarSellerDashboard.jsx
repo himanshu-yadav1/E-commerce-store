@@ -24,7 +24,7 @@ function SidebarSellerDashboard({ handleSidebarVisibility }) {
         {
             title: 'Reviews',
             img: '../images/seller-dashboard/rating.png',
-            to: ''
+            to: '/seller/reviews'
         },
     ]
 

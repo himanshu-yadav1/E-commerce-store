@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { FaChevronDown, FaChevronUp, FaPen, FaEllipsisV } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 function Orders() {
 
