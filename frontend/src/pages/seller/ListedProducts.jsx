@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const products = [
     {
@@ -104,14 +105,20 @@ function ListedProducts() {
     return (
         <div className="bg-mainBgColor py-mainPaddingY px-mainPaddingX">
             <div className="bg-cardBg py-cardPaddingY px-cardPaddingX shadow-sm border-cardBorderTop rounded-xl flex justify-between items-center">
-                <h2 className="text-xl">Listed Products</h2>
+                <div className='flex gap-5'>
+                    <h2 className="text-xl hidden sm:block">Listed Products</h2>
 
-                <select name="" id="" className='border border-slate-400 sm:w-[150px] px-2 py-1 rounded-md focus:outline-none'>
-                    <option value="">All</option>
-                    <option value="">In Stock</option>
-                    <option value="">Out of Stock</option>
-                    <option value="">Best Selling</option>
-                </select>
+                    <select name="" id="" className='border border-slate-400 sm:w-[150px] px-2 py-1 rounded-md focus:outline-none'>
+                        <option value="">All</option>
+                        <option value="">In Stock</option>
+                        <option value="">Out of Stock</option>
+                        <option value="">Best Selling</option>
+                    </select>
+                </div>
+
+                <Link to={'/seller/add-product'} className='bg-[#402768] text-white px-2 py-1 rounded-lg hover:scale-105'>
+                    <span>Add Product</span>
+                </Link>
             </div>
 
 

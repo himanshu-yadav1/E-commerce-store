@@ -10,6 +10,7 @@ import SellerDashboard from './pages/seller/SellerDashboard'
 import ListedProducts from './pages/seller/ListedProducts'
 import Orders from './pages/seller/Orders'
 import Reviews from './pages/seller/Reviews'
+import AddProduct from './pages/seller/AddProduct'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/seller" element={<SellerDashboardLayout />}>
           <Route path='dashboard' element={<SellerDashboard />}/>
           <Route path='listed-products' element={<ListedProducts />}/>
+          <Route path='add-product' element={<AddProduct />}/>
           <Route path='orders' element={<Orders />}/>
           <Route path='reviews' element={<Reviews />}/>
         </Route>
