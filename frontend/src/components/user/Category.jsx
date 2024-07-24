@@ -14,12 +14,12 @@ function Category({ handleCategoryPanelVisibility }) {
 
     return (
         <>
-            <div className='flex flex-col p-7 sm:p-5 h-full w-[78%] sm:w-full sm:border bg-white rounded-xl'>
+            <div className='flex flex-col p-7 sm:p-5 h-full w-[78%] sm:w-full sm:border bg-white rounded-2xl shadow-sm'>
                 <div className='flex justify-between items-center border-b sm:border-none py-3 sm:py-0 pb-5 sm:pb-3'>
                     <h2 className='uppercase text-xl sm:text-lg sm:font-semibold text-[#D65DB1]'>Category</h2>
 
                     <button onClick={() => handleCategoryPanelVisibility(false)} className='sm:hidden'>
-                        <FiPlus className='rotate-45 text-4xl'/>
+                        <FiPlus className='rotate-45 text-4xl' />
                     </button>
 
                 </div>
@@ -31,18 +31,18 @@ function Category({ handleCategoryPanelVisibility }) {
                             <img width='23' src="images/category/tshirt.png" alt="" />
                             <Link to={'/'} className='font-semibold sm:font-normal'>Clothes</Link>
                         </div>
-                        
-                        {expandedCategory === 'clothes' 
+
+                        {expandedCategory === 'clothes'
                             ?
                             <button onClick={() => updateExpandedCategory('')} className={`mr-2`}>
-                                <TiMinus className='sm:hidden'/>
-                                <FiMinus className='hidden sm:flex'/>
+                                <TiMinus className='sm:hidden' />
+                                <FiMinus className='hidden sm:flex' />
                             </button>
 
                             :
                             <button onClick={() => updateExpandedCategory('clothes')} className={`mr-2`}>
-                                <TiPlus className='sm:hidden'/>
-                                <FiPlus className='hidden sm:flex'/>
+                                <TiPlus className='sm:hidden' />
+                                <FiPlus className='hidden sm:flex' />
                             </button>
                         }
                     </div>
@@ -56,7 +56,7 @@ function Category({ handleCategoryPanelVisibility }) {
                             <Link to={'/'} className='text-gray-600'>Hoodies</Link>
                         </div>
                     }
-                    
+
                 </div>
 
                 <div className='border-b sm:border-none py-[12px] sm:py-[8px]'>
@@ -65,18 +65,18 @@ function Category({ handleCategoryPanelVisibility }) {
                             <img width='23' src="images/category/furniture.png" alt="" />
                             <Link to={'/'} className='font-semibold sm:font-normal'>Furniture</Link>
                         </div>
-                        
-                        {expandedCategory === 'furniture' 
+
+                        {expandedCategory === 'furniture'
                             ?
                             <button onClick={() => updateExpandedCategory('')} className={`mr-2`}>
-                                <TiMinus className='sm:hidden'/>
-                                <FiMinus className='hidden sm:flex'/>
+                                <TiMinus className='sm:hidden' />
+                                <FiMinus className='hidden sm:flex' />
                             </button>
 
                             :
                             <button onClick={() => updateExpandedCategory('furniture')} className={`mr-2`}>
-                                <TiPlus className='sm:hidden'/>
-                                <FiPlus className='hidden sm:flex'/>
+                                <TiPlus className='sm:hidden' />
+                                <FiPlus className='hidden sm:flex' />
                             </button>
                         }
                     </div>
@@ -91,7 +91,7 @@ function Category({ handleCategoryPanelVisibility }) {
                             <Link to={'/'} className='text-gray-600'>Dining Table</Link>
                         </div>
                     }
-                    
+
                 </div>
 
                 <div className='border-b sm:border-none py-[12px] sm:py-[8px]'>
@@ -100,18 +100,18 @@ function Category({ handleCategoryPanelVisibility }) {
                             <img width='23' src="images/category/sneakers.png" alt="" />
                             <Link to={'/'} className='font-semibold sm:font-normal'>Footwear</Link>
                         </div>
-                        
-                        {expandedCategory === 'footwear' 
+
+                        {expandedCategory === 'footwear'
                             ?
                             <button onClick={() => updateExpandedCategory('')} className={`mr-2`}>
-                                <TiMinus className='sm:hidden'/>
-                                <FiMinus className='hidden sm:flex'/>
+                                <TiMinus className='sm:hidden' />
+                                <FiMinus className='hidden sm:flex' />
                             </button>
 
                             :
                             <button onClick={() => updateExpandedCategory('footwear')} className={`mr-2`}>
-                                <TiPlus className='sm:hidden'/>
-                                <FiPlus className='hidden sm:flex'/>
+                                <TiPlus className='sm:hidden' />
+                                <FiPlus className='hidden sm:flex' />
                             </button>
                         }
                     </div>
@@ -124,7 +124,7 @@ function Category({ handleCategoryPanelVisibility }) {
                             <Link to={'/'} className='text-gray-600'>Safety Shoes</Link>
                         </div>
                     }
-                    
+
                 </div>
 
                 <div className='border-b sm:border-none py-[12px] sm:py-[8px]'>
@@ -133,18 +133,18 @@ function Category({ handleCategoryPanelVisibility }) {
                             <img width='23' src="images/category/school-bag.png" alt="" />
                             <Link to={'/'} className='font-semibold sm:font-normal'>Bags</Link>
                         </div>
-                        
-                        {expandedCategory === 'bags' 
+
+                        {expandedCategory === 'bags'
                             ?
                             <button onClick={() => updateExpandedCategory('')} className={`mr-2`}>
-                                <TiMinus className='sm:hidden'/>
-                                <FiMinus className='hidden sm:flex'/>
+                                <TiMinus className='sm:hidden' />
+                                <FiMinus className='hidden sm:flex' />
                             </button>
 
                             :
                             <button onClick={() => updateExpandedCategory('bags')} className={`mr-2`}>
-                                <TiPlus className='sm:hidden'/>
-                                <FiPlus className='hidden sm:flex'/>
+                                <TiPlus className='sm:hidden' />
+                                <FiPlus className='hidden sm:flex' />
                             </button>
                         }
                     </div>
@@ -158,7 +158,7 @@ function Category({ handleCategoryPanelVisibility }) {
                             <Link to={'/'} className='text-gray-600'>Wallet</Link>
                         </div>
                     }
-                    
+
                 </div>
 
                 <div className='border-b sm:border-none py-[12px] sm:py-[8px]'>
@@ -167,18 +167,18 @@ function Category({ handleCategoryPanelVisibility }) {
                             <img width='23' src="images/category/dumbbells.png" alt="" />
                             <Link to={'/'} className='font-semibold sm:font-normal'>Fitness</Link>
                         </div>
-                        
-                        {expandedCategory === 'fitness' 
+
+                        {expandedCategory === 'fitness'
                             ?
                             <button onClick={() => updateExpandedCategory('')} className={`mr-2`}>
-                                <TiMinus className='sm:hidden'/>
-                                <FiMinus className='hidden sm:flex'/>
+                                <TiMinus className='sm:hidden' />
+                                <FiMinus className='hidden sm:flex' />
                             </button>
 
                             :
                             <button onClick={() => updateExpandedCategory('fitness')} className={`mr-2`}>
-                                <TiPlus className='sm:hidden'/>
-                                <FiPlus className='hidden sm:flex'/>
+                                <TiPlus className='sm:hidden' />
+                                <FiPlus className='hidden sm:flex' />
                             </button>
                         }
                     </div>
@@ -191,7 +191,7 @@ function Category({ handleCategoryPanelVisibility }) {
                             <Link to={'/'} className='text-gray-600'>Home Gym Systems</Link>
                         </div>
                     }
-                    
+
                 </div>
 
                 <div className='border-b sm:border-none py-[12px] sm:py-[8px]'>
@@ -200,18 +200,18 @@ function Category({ handleCategoryPanelVisibility }) {
                             <img width='23' src="images/category/computer.png" alt="" />
                             <Link to={'/'} className='font-semibold sm:font-normal'>Electronics</Link>
                         </div>
-                        
-                        {expandedCategory === 'electronics' 
+
+                        {expandedCategory === 'electronics'
                             ?
                             <button onClick={() => updateExpandedCategory('')} className={`mr-2`}>
-                                <TiMinus className='sm:hidden'/>
-                                <FiMinus className='hidden sm:flex'/>
+                                <TiMinus className='sm:hidden' />
+                                <FiMinus className='hidden sm:flex' />
                             </button>
 
                             :
                             <button onClick={() => updateExpandedCategory('electronics')} className={`mr-2`}>
-                                <TiPlus className='sm:hidden'/>
-                                <FiPlus className='hidden sm:flex'/>
+                                <TiPlus className='sm:hidden' />
+                                <FiPlus className='hidden sm:flex' />
                             </button>
                         }
                     </div>
@@ -226,7 +226,7 @@ function Category({ handleCategoryPanelVisibility }) {
                             <Link to={'/'} className='text-gray-600'>Printer</Link>
                         </div>
                     }
-                    
+
                 </div>
 
                 <div className='border-b sm:border-none py-[12px] sm:py-[8px]'>
@@ -235,18 +235,18 @@ function Category({ handleCategoryPanelVisibility }) {
                             <img width='23' src="images/category/shampoo.png" alt="" />
                             <Link to={'/'} className='font-semibold sm:font-normal'>Beauty & Cosmetics</Link>
                         </div>
-                        
-                        {expandedCategory === 'beauty & cosmetics' 
+
+                        {expandedCategory === 'beauty & cosmetics'
                             ?
                             <button onClick={() => updateExpandedCategory('')} className={`mr-2`}>
-                                <TiMinus className='sm:hidden'/>
-                                <FiMinus className='hidden sm:flex'/>
+                                <TiMinus className='sm:hidden' />
+                                <FiMinus className='hidden sm:flex' />
                             </button>
 
                             :
                             <button onClick={() => updateExpandedCategory('beauty & cosmetics')} className={`mr-2`}>
-                                <TiPlus className='sm:hidden'/>
-                                <FiPlus className='hidden sm:flex'/>
+                                <TiPlus className='sm:hidden' />
+                                <FiPlus className='hidden sm:flex' />
                             </button>
                         }
                     </div>
@@ -261,12 +261,12 @@ function Category({ handleCategoryPanelVisibility }) {
                             <Link to={'/'} className='text-gray-600'>Facewash</Link>
                         </div>
                     }
-                    
+
                 </div>
 
             </div>
 
-    
+
         </>
     )
 }

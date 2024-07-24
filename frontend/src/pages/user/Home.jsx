@@ -5,6 +5,9 @@ import HeaderBar from '../../components/user/HeaderBar'
 import Category from '../../components/user/Category'
 import CategoryCard from '../../components/user/CategoryCard'
 import ProductItem2 from '../../components/user/ProductItem2'
+import Footer from '../../components/user/Footer'
+import ProductItem from '../../components/user/ProductItem'
+import Features from '../../components/user/Features'
 
 
 function Home() {
@@ -157,35 +160,73 @@ function Home() {
                 </div>
             </div>
 
-            <div className='flex items-start p-5 pt-3'>
-                <div className='hidden md:block w-[20%] mr-5 sticky top-3'>
+            <div className='flex items-start p-5 pt-3 mt-6 sm:mt-0'>
+                <div className='hidden md:block w-[20%] mr-5 sticky top-5 mt-2'>
                     <Category />
                 </div>
 
                 <div className='md:w-[80%]'>
                     <div>
-                        <p className='mb-3 uppercase text-2xl text-[#1E4E40]'>trending</p>
+                        <p className='mb-4 uppercase text-2xl text-[#1E4E40] border-b'>trending products</p>
 
-                        <div className='flex justify-center flex-wrap gap-x-5 gap-y-3'>
-                            {product.map((product, index) => (
+                        <div className='flex sm:hidden justify-center flex-wrap gap-x-5 gap-y-3'>
+                            {product.slice(6, 12).map((product, index) => (
                                 <ProductItem2 key={index} product={product} />
+                            ))}
+                        </div>
+
+                        <div className='hidden sm:flex justify-center flex-wrap gap-x-5 gap-y-3'>
+                            {product.slice(4, 12).map((product, index) => (
+                                <ProductItem key={index} product={product} />
                             ))}
                         </div>
                     </div>
 
 
                     <div className='mt-9'>
-                        <p className='mb-3 uppercase text-2xl text-[#1E4E40]'>Top Selling</p>
+                        <p className='mb-4 uppercase text-2xl text-[#1E4E40] border-b'>Top Selling products</p>
 
-                        <div className='flex justify-center flex-wrap gap-x-5 gap-y-3'>
+                        <div className='flex sm:hidden justify-center flex-wrap gap-x-5 gap-y-3'>
                             {product.slice(0, 6).map((product, index) => (
                                 <ProductItem2 key={index} product={product} />
+                            ))}
+                        </div>
+
+                        <div className='hidden sm:flex justify-center flex-wrap gap-x-5 gap-y-3'>
+                            {product.slice(0, 8).map((product, index) => (
+                                <ProductItem key={index} product={product} />
+                            ))}
+                        </div>
+                    </div>
+
+
+                    <div className='mt-9'>
+                        <p className='mb-4 uppercase text-2xl text-[#1E4E40] border-b'>New Products</p>
+
+                        <div className='flex sm:hidden justify-center flex-wrap gap-x-5 gap-y-3'>
+                            {product.slice(4, 10).map((product, index) => (
+                                <ProductItem2 key={index} product={product} />
+                            ))}
+                        </div>
+
+                        <div className='hidden sm:flex justify-center flex-wrap gap-x-5 gap-y-3'>
+                            {product.slice(3, 11).map((product, index) => (
+                                <ProductItem key={index} product={product} />
                             ))}
                         </div>
                     </div>
                 </div>
             </div>
 
+
+            <div>
+                <Features />
+            </div>
+
+
+            <div className='mt-6'>
+                <Footer />
+            </div>
         </div>
     )
 }
