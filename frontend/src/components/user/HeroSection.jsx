@@ -12,7 +12,7 @@ function Hero_Section() {
                     </div>
                     
                     <div className="hidden sm:flex justify-center py-5">
-                        <Link to={'/'} className=" bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 hover:scale-105 cursor-pointer transition">
+                        <Link to={'/search'} className=" bg-[#292929] border-2 border-[#3e3e3e] rounded-lg text-white px-6 py-3 hover:scale-105 cursor-pointer transition">
                             Shop Now
                         </Link>
                     </div>

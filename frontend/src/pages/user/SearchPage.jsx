@@ -1,17 +1,36 @@
 import React from 'react'
+import ProductsSearchFilters from '../../components/user/ProductsSearchFilters'
 import Menu from '../../components/user/Menu'
-import HeroSection from '../../components/user/HeroSection'
-import HeaderBar from '../../components/user/HeaderBar'
-import Category from '../../components/user/Category'
-import CategoryCard from '../../components/user/CategoryCard'
-import ProductItem2 from '../../components/user/ProductItem2'
-import Footer from '../../components/user/Footer'
 import ProductItem from '../../components/user/ProductItem'
-import Features from '../../components/user/Features'
+import Footer from '../../components/user/Footer';
+import BrowseCollectionCard from '../../components/user/BrowseCollectionCard';
+
+function SearchPage() {
+    const browseCollections = [
+        {
+            image: 'https://maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/assets/images/product-image/101_1.jpg',
+            title: "Footwear",
+            price: 799.00
+        },
+        {
+            image: 'https://maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/assets/images/product-image/90_1.jpg',
+            title: "Women's Fashion",
+            price: 599.00
+        },
+        {
+            image: 'https://maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/assets/images/product-image/93_1.jpg',
+            title: "Men's Fashion",
+            price: 499.00
+        },
+        {
+            image: 'https://maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/assets/images/product-image/109_1.jpg',
+            title: 'Accessories',
+            price: 199.00
+        },
+    ];
 
 
-function Home() {
-    const product = [
+    const products = [
         {
             image: 'https://maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/assets/images/product-image/96_1.jpg',
             name: 'Running & Trekking Shoes',
@@ -29,9 +48,9 @@ function Home() {
             offer: true,
         },
         {
-            image: 'https://maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/assets/images/product-image/109_1.jpg',
-            name: 'Men Leather Reversible Belt',
-            category: 'Belt',
+            image: 'https://maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/assets/images/product-image/91_1.jpg',
+            name: 'Pure Garment Dyed Cotton Shirt',
+            category: 'Shirt',
             price: 490.00,
             discountedPrice: 390.00,
             offer: true,
@@ -93,9 +112,9 @@ function Home() {
             offer: true,
         },
         {
-            image: 'https://maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/assets/images/product-image/109_1.jpg',
-            name: 'Men Leather Reversible Belt',
-            category: 'Belt',
+            image: 'https://maraviyainfotech.com/projects/ekka/ekka-v37/ekka-html/assets/images/product-image/98_1.jpg',
+            name: 'Silver Deer Heart Necklace',
+            category: 'Footwear',
             price: 490.00,
             discountedPrice: 390.00,
             offer: true,
@@ -110,107 +129,52 @@ function Home() {
         },
     ];
 
-    const categoryCardsData = [
-        {
-            icon: 'images/glasses.png',
-            name: 'GLASSES & LENS',
-            link: '#',
-            bg_color: '#e9e9fe'
-        },
-        {
-            icon: 'images/denim-shorts.png',
-            name: 'SHORTS & JEANS',
-            link: '#',
-            bg_color: '#d3faf3'
-        },
-        {
-            icon: 'images/shirt.png',
-            name: 'T-SHIRTS',
-            link: '#',
-            bg_color: '#feefd8'
-        },
-        {
-            icon: 'images/jacket.png',
-            name: 'JACKETS',
-            link: '#',
-            bg_color: '#d7ffe0'
-        },
-    ];
-
     return (
-        <div>
-            <div className='hidden sm:inline'>
+        <>
+            {/* <div className='hidden sm:inline'>
                 <Menu />
-            </div>
-
-            <div className='sm:hidden'>
-                <HeaderBar />
-            </div>
-
-            <div className='p-5 sm:pt-0'>
-                <HeroSection />
-            </div>
+            </div> */}
 
 
-            <div className='hidden sm:block'>
-                <div className="flex justify-between p-5 gap-5 overflow-auto">
-                    {categoryCardsData.map((category, index) => (
-                        <CategoryCard key={index} category={category} />
-                    ))}
-                </div>
-            </div>
-
-            <div className='flex items-start p-5 pt-3 mt-6 sm:mt-0'>
-                <div className='hidden md:block w-[20%] mr-5 sticky top-5 mt-2'>
-                    <Category />
+            <div className='flex items-start p-5 mt-6 sm:mt-0'>
+                <div className="hidden md:block md:w-[20%] mr-5 sticky top-1">
+                    <ProductsSearchFilters />
                 </div>
 
                 <div className='md:w-[80%]'>
-                    <div>
-                        <p className='mb-4 uppercase text-2xl text-[#1E4E40] border-b'>trending products</p>
-
-                        <div className='flex justify-center flex-wrap gap-x-5 gap-y-3'>
-                            {product.slice(6, 12).map((product, index) => (
-                                <ProductItem2 key={index} product={product} />
-                            ))}
-                        </div>
-                    </div>
-
-
-                    <div className='mt-9'>
-                        <p className='mb-4 uppercase text-2xl text-[#1E4E40] border-b'>Top Selling products</p>
-
-                        <div className='flex justify-center flex-wrap gap-x-5 gap-y-3'>
-                            {product.slice(0, 6).map((product, index) => (
-                                <ProductItem2 key={index} product={product} />
-                            ))}
-                        </div>
-                    </div>
-
-
-                    <div className='mt-9'>
-                        <p className='mb-4 uppercase text-2xl text-[#1E4E40] border-b'>New Products</p>
-
-                        <div className='flex justify-center flex-wrap gap-x-5 gap-y-3'>
-                            {product.slice(1, 10).map((product, index) => (
-                                <ProductItem2 key={index} product={product} />
-                            ))}
-                        </div>
+                    <div className='hidden sm:flex justify-center flex-wrap gap-x-5 gap-y-3'>
+                        {products.slice(0, 12).map((product, index) => (
+                            <ProductItem key={index} product={product} />
+                        ))}
+                        {products.slice(0, 12).map((product, index) => (
+                            <ProductItem key={index} product={product} />
+                        ))}
                     </div>
                 </div>
             </div>
 
 
-            <div>
-                <Features />
+            <div className='px-5 mt-8 mb-8'>
+                <p className='text-center uppercase text-xl text-[#1E4E40] mb-2'>Browse The Collection of Top Categories</p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {browseCollections.map((product, index) => (
+                        <BrowseCollectionCard
+                            key={index}
+                            image={product.image}
+                            title={product.title}
+                            price={product.price}
+                        />
+                    ))}
+                </div>
             </div>
 
 
             <div className='mt-6'>
                 <Footer />
             </div>
-        </div>
+        </>
     )
 }
 
-export default Home
+export default SearchPage
