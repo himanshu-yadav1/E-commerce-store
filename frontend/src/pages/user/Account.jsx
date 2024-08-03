@@ -94,7 +94,7 @@ function Account() {
                         imageSrc="images/account/customer-service.png"
                         title="Contact Us"
                         description="Get help and support"
-                        to="/"
+                        to="/contact-us"
                     />
 
                 </div>

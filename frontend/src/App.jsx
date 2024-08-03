@@ -12,6 +12,7 @@ import Orders from './pages/seller/Orders'
 import Reviews from './pages/seller/Reviews'
 import AddProduct from './pages/seller/AddProduct'
 import SearchPage from './pages/user/SearchPage'
+import ContactUs from './pages/user/ContactUs'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='signin' element={<SignIn />}/>
           <Route path='account' element={<Account />}/>
           <Route path='search' element={<SearchPage />}/>
+          <Route path='contact-us' element={<ContactUs />}/>
         </Route>
 
         <Route path="/seller" element={<SellerDashboardLayout />}>

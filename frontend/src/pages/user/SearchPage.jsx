@@ -136,7 +136,7 @@ function SearchPage() {
             </div> */}
 
 
-            <div className='flex items-start p-5 mt-6 sm:mt-0'>
+            <div className='flex items-start p-5 mt-6 sm:mt-2'>
                 <div className="hidden md:block md:w-[20%] mr-5 sticky top-1">
                     <ProductsSearchFilters />
                 </div>

@@ -7,7 +7,7 @@ function HeaderBar() {
         <div className='sm:hidden pt-7'>
             <h1 className="text-center text-3xl font-extrabold text-[#1d3f35]">SwiftStore</h1>
             
-            <form className="flex justify-between gap-2 mx-5 mt-5 p-2 border border-gray-300 rounded-lg">
+            <form className="flex justify-between gap-2 mx-5 mt-5 p-2 border border-gray-300 bg-white rounded-lg">
                 <input type="text" placeholder='Search for products...' className='w-full text-[#222E50] focus:outline-none'/>
                 
                 <button>
