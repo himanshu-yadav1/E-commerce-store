@@ -13,6 +13,7 @@ import Reviews from './pages/seller/Reviews'
 import AddProduct from './pages/seller/AddProduct'
 import SearchPage from './pages/user/SearchPage'
 import ContactUs from './pages/user/ContactUs'
+import Cart from './pages/user/Cart'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='account' element={<Account />}/>
           <Route path='search' element={<SearchPage />}/>
           <Route path='contact-us' element={<ContactUs />}/>
+          <Route path='cart' element={<Cart />}/>
         </Route>
 
         <Route path="/seller" element={<SellerDashboardLayout />}>

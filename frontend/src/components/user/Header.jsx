@@ -42,7 +42,7 @@ function Header() {
 
                         {currentUser &&
                             (
-                                <Link to={'/'} className="order-2 sm:order-2 hover:text-[#3f2766] hover:scale-105">
+                                <Link to={'/cart'} className="order-2 sm:order-2 hover:text-[#3f2766] hover:scale-105">
                                     <CiShoppingCart />
                                 </Link>
                                 

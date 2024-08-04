@@ -52,7 +52,7 @@ function Account() {
 
 
             <div className="py-7 px-10 md:px-24">
-                <h2 className="text-2xl text-gray-500 font-semibold font-serif">Your Account</h2>
+                <h2 className="text-xl text-gray-500 font-semibold font-serif">Your Account</h2>
 
                 <div className="flex w-full flex-wrap flex-col sm:flex-row sm:justify-center gap-3 py-7">
                     <AccountItem 
@@ -73,7 +73,7 @@ function Account() {
                         imageSrc="images/account/shopping-cart.png"
                         title="Your Cart"
                         description="View and manage your cart items"
-                        to="/"
+                        to="/cart"
                     />
 
                     <AccountItem 

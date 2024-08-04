@@ -5,9 +5,8 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { FiPlus } from 'react-icons/fi'
 
 function Menu({ handleMenuPanelVisibility }) {
-
     const [isCategoriesHovered, setIsCategoriesHovered] = useState(false)
-    
+
     return (
         <>
             <div className='flex flex-col sm:flex-row sm:justify-center h-full sm:h-auto w-[78%] sm:w-full gap-0 sm:gap-5 md:gap-10 p-7 sm:p-0 sm:px-20 bg-white rounded-xl sm:rounded-none'>
@@ -15,14 +14,12 @@ function Menu({ handleMenuPanelVisibility }) {
                     <h2 className='uppercase text-xl text-[#D65DB1]'>Menu</h2>
 
                     <button onClick={() => handleMenuPanelVisibility(false)}>
-                        <FiPlus className='rotate-45 text-4xl'/>
+                        <FiPlus className='rotate-45 text-4xl' />
                     </button>
-
                 </div>
 
 
                 <div className='flex flex-col sm:flex-row sm:gap-4 md:gap-10 sm:uppercase sm:text-xs md:text-base font-semibold sm:font-normal whitespace-nowrap'>
-
                     <div className='hidden sm:flex items-center gap-3 border-b sm:border-none py-[12px] sm:py-2'>
                         <Link onMouseEnter={() => setIsCategoriesHovered(true)} onMouseLeave={() => setIsCategoriesHovered(false)} className='sm:hover:text-[#D65DB1] sm:active:scale-105'>Categories</Link>
                     </div>
@@ -60,19 +57,18 @@ function Menu({ handleMenuPanelVisibility }) {
 
 
                 <div className='sm:hidden mt-10 flex justify-center gap-6'>
-                        <Link to={'https://facebook.com'} className='bg-gray-200 p-2 rounded-lg'>
-                            <FaFacebook />
-                        </Link>
+                    <Link to={'https://facebook.com'} className='bg-gray-200 p-2 rounded-lg'>
+                        <FaFacebook />
+                    </Link>
 
-                        <Link to={'https://twitter.com'} className='bg-gray-200 p-2 rounded-lg'>
-                            <FaTwitter />
-                        </Link>
+                    <Link to={'https://twitter.com'} className='bg-gray-200 p-2 rounded-lg'>
+                        <FaTwitter />
+                    </Link>
 
-                        <Link to={'https://instagram.com'} className='bg-gray-200 p-2 rounded-lg'>
-                            <FaInstagram />
-                        </Link>
+                    <Link to={'https://instagram.com'} className='bg-gray-200 p-2 rounded-lg'>
+                        <FaInstagram />
+                    </Link>
                 </div>
-                
             </div>
 
 

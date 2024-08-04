@@ -3,12 +3,11 @@ import Header from "../components/user/Header"
 
 function MainLayout() {
     return (
-        <>
+        <div className="select-none">
             <Header />
 
             <Outlet />
-
-        </>
+        </div>
     )
 }
 
