@@ -80,7 +80,7 @@ function Account() {
                         imageSrc="images/account/wishlist.png"
                         title="Your Wishlist"
                         description="Browse your saved products"
-                        to="/"
+                        to="/wishlist"
                     />
 
                     <AccountItem 

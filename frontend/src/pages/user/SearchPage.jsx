@@ -4,6 +4,7 @@ import Menu from '../../components/user/Menu'
 import ProductItem from '../../components/user/ProductItem'
 import Footer from '../../components/user/Footer';
 import BrowseCollectionCard from '../../components/user/BrowseCollectionCard';
+import HeaderBar from '../../components/user/HeaderBar';
 
 function SearchPage() {
     const browseCollections = [
@@ -135,14 +136,18 @@ function SearchPage() {
                 <Menu />
             </div> */}
 
+            <div>
+                <HeaderBar />
+            </div>
 
-            <div className='flex items-start p-5 mt-6 sm:mt-2'>
+
+            <div className='flex items-start sm:p-5 mt-6 sm:mt-2'>
                 <div className="hidden md:block md:w-[20%] mr-5 sticky top-1">
                     <ProductsSearchFilters />
                 </div>
 
                 <div className='md:w-[80%]'>
-                    <div className='hidden sm:flex justify-center flex-wrap gap-x-5 gap-y-3'>
+                    <div className='flex justify-center flex-wrap gap-x-3 sm:gap-x-5 gap-y-3'>
                         {products.slice(0, 12).map((product, index) => (
                             <ProductItem key={index} product={product} />
                         ))}
@@ -154,7 +159,7 @@ function SearchPage() {
             </div>
 
 
-            <div className='px-5 mt-8 mb-8'>
+            <div className='px-5 mt-14 sm:mt-8 mb-8'>
                 <p className='text-center uppercase text-xl text-[#1E4E40] mb-2'>Browse The Collection of Top Categories</p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -22,7 +22,7 @@ function Header() {
 
     return (
         <>
-            <header className="flex justify-center sm:justify-between">
+            <header className="z-10 relative flex justify-center sm:justify-between">
                 <div className='fixed sm:relative bottom-8 sm:bottom-0 rounded-full sm:rounded-none w-[85%] sm:w-full flex items-center justify-between shadow-2xl sm:shadow-sm py-3 px-6 border sm:border-none bg-white'>
                     <div className="hidden sm:flex">
                         <Link to={'/'} className="text-2xl font-bold font-serif text-[#402768]">SwiftStore</Link>
@@ -67,12 +67,12 @@ function Header() {
 
             
             <div className="sm:hidden ">
-                <div className={`fixed flex h-[100vh] w-[100vw] bg-black bg-opacity-40 duration-500 transition-transform ${isMenuPanelVisible ? '-translate-x-0' : '-translate-x-[100%]'}`}>
+                <div className={`z-50 fixed flex h-[100vh] w-[100vw] bg-black bg-opacity-40 duration-500 transition-transform ${isMenuPanelVisible ? '-translate-x-0' : '-translate-x-[100%]'}`}>
                     <Menu handleMenuPanelVisibility={handleMenuPanelVisibility} />
                 </div>
 
                 
-                <div className={`fixed flex justify-end h-[100vh] w-[100vw] bg-black bg-opacity-40 duration-500 transition-transform ${isCategoryPanelVisible ? '-translate-x-0' : '-translate-x-[-100%]'}`}>
+                <div className={`z-50 fixed flex justify-end h-[100vh] w-[100vw] bg-black bg-opacity-40 duration-500 transition-transform ${isCategoryPanelVisible ? '-translate-x-0' : '-translate-x-[-100%]'}`}>
                     <Category handleCategoryPanelVisibility={handleCategoryPanelVisibility}/>
                 </div>
             </div>

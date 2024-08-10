@@ -77,7 +77,7 @@ function Cart() {
             </div>
 
             {cartItems.length > 0 ? (
-                <div className="py-7 px-5 sm:px-24">
+                <div className="py-10 px-5 mb-20 sm:mb-0">
                     <div className='flex justify-between items-center'>
                         <h1 className="text-xl text-gray-500 font-semibold font-serif">Shopping Cart</h1>
                         <span onClick={() => setOrderSummaryOnSmallScreenVisiblity(true)} className="flex sm:hidden items-center text-blue-500 font-semibold">
@@ -88,7 +88,7 @@ function Cart() {
                         </span>
                     </div>
 
-                    <div className="flex flex-col lg:items-start lg:flex-row gap-8 mt-8">
+                    <div className="flex flex-col lg:items-start lg:flex-row gap-8 mt-5">
                         <div className="lg:w-[66%] flex flex-col gap-3">
                             {cartItems.map((item) => (
                                 <div key={item.id}>
@@ -102,7 +102,7 @@ function Cart() {
                         </div>
 
                         {orderSummaryOnSmallScreenVisiblity &&
-                            <div className='sm:hidden fixed top-0 left-0 w-[100%] h-[100%] bg-black bg-opacity-60 flex justify-center items-center'>
+                            <div className='z-50 sm:hidden fixed top-0 left-0 w-[100%] h-[100%] bg-black bg-opacity-60 flex justify-center items-center'>
                                 <CartOrderSummary cartItems={cartItems} prices={prices} setOrderSummaryOnSmallScreenVisiblity={setOrderSummaryOnSmallScreenVisiblity} />
                             </div>
                         }
