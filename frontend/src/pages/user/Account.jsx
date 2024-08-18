@@ -59,7 +59,7 @@ function Account() {
                         imageSrc="images/account/box.png"
                         title="Your Orders"
                         description="See all your orders"
-                        to="/"
+                        to="/order"
                     />
                     
                     <AccountItem 

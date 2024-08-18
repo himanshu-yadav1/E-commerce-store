@@ -15,6 +15,7 @@ import SearchPage from './pages/user/SearchPage'
 import ContactUs from './pages/user/ContactUs'
 import Cart from './pages/user/Cart'
 import Wishlist from './pages/user/Wishlist'
+import Order from './pages/user/Order'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='contact-us' element={<ContactUs />}/>
           <Route path='cart' element={<Cart />}/>
           <Route path='wishlist' element={<Wishlist />}/>
+          <Route path='order' element={<Order />}/>
         </Route>
 
         <Route path="/seller" element={<SellerDashboardLayout />}>
