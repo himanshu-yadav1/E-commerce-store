@@ -11,7 +11,7 @@ function Account() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if(!currentUser){
+        if (!currentUser) {
             navigate('/signin')
         }
 
@@ -22,24 +22,24 @@ function Account() {
 
         setTimeout(() => {
 
-            fetch('/api/v1/auth/signout')
-            .then((resp) => {
-                return resp.json()
-            })
-            .then((data) => {
-                if(data.success === false){
-                    console.log("Error occurred while signing out.")
-                    return
-                }
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/auth/signout`)
+                .then((resp) => {
+                    return resp.json()
+                })
+                .then((data) => {
+                    if (data.success === false) {
+                        console.log("Error occurred while signing out.")
+                        return
+                    }
 
-                dispatch(signOutSuccess())
-                navigate('/')
-            })
-            .catch((error) => {
-                window.alert("Error occurred while signing out.")
-                console.log("Error occurred while signing out.", error)
-            })
-            
+                    dispatch(signOutSuccess())
+                    navigate('/')
+                })
+                .catch((error) => {
+                    window.alert("Error occurred while signing out.")
+                    console.log("Error occurred while signing out.", error)
+                })
+
         }, 400);
     }
 
@@ -55,42 +55,42 @@ function Account() {
                 <h2 className="text-xl text-gray-500 font-semibold font-serif">Your Account</h2>
 
                 <div className="flex w-full flex-wrap flex-col sm:flex-row sm:justify-center gap-3 py-7">
-                    <AccountItem 
+                    <AccountItem
                         imageSrc="images/account/box.png"
                         title="Your Orders"
                         description="See all your orders"
                         to="/order"
                     />
-                    
-                    <AccountItem 
+
+                    <AccountItem
                         imageSrc="images/account/lock.png"
                         title="Login & Security"
                         description="Edit email, username, and password"
                         to="/"
                     />
 
-                    <AccountItem 
+                    <AccountItem
                         imageSrc="images/account/shopping-cart.png"
                         title="Your Cart"
                         description="View and manage your cart items"
                         to="/cart"
                     />
 
-                    <AccountItem 
+                    <AccountItem
                         imageSrc="images/account/wishlist.png"
                         title="Your Wishlist"
                         description="Browse your saved products"
                         to="/wishlist"
                     />
 
-                    <AccountItem 
+                    <AccountItem
                         imageSrc="images/account/sell.png"
                         title="Sell on SwiftStore"
                         description="Start selling your products"
                         to="/seller/dashboard"
                     />
 
-                    <AccountItem 
+                    <AccountItem
                         imageSrc="images/account/customer-service.png"
                         title="Contact Us"
                         description="Get help and support"

@@ -17,7 +17,7 @@ function BecomeSeller() {
     const handleBecomeSeller = (e) => {
         e.preventDefault()
 
-        fetch('/api/v1/user/registerAsSeller', {
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user/registerAsSeller`, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(
