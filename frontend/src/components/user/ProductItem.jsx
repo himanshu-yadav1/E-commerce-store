@@ -11,7 +11,7 @@ function ProductItem({ product }) {
                 <FaHeart />
             </button>
 
-            <Link>
+            <Link Link to={'/product'}>
                 <img
                     src={product.image}
                     alt={product.name}

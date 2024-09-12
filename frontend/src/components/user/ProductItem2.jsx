@@ -6,6 +6,7 @@ function ProductItem2({ product }) {
     return (
         <>
             <Link
+                to={'/product'}
                 className="flex flex-grow w-[250px] sm:max-w-[310px] items-center gap-10 sm:gap-5 px-4 sm:px-3 py-2 bg-white rounded-xl border border-gray-200 transition-all duration-75 shadow-sm hover:shadow-md"
                 data-tooltip-id="viewProductTooltip"
                 data-tooltip-content="View Product"
