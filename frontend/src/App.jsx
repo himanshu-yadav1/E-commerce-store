@@ -17,6 +17,7 @@ import Cart from './pages/user/Cart'
 import Wishlist from './pages/user/Wishlist'
 import Order from './pages/user/Order'
 import ProductPage from './pages/user/ProductPage'
+import Profile from './pages/user/Profile'
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path='wishlist' element={<Wishlist />}/>
           <Route path='order' element={<Order />}/>
           <Route path='product' element={<ProductPage />}/>
+          <Route path='profile' element={<Profile />}/>
         </Route>
 
         <Route path="/seller" element={<SellerDashboardLayout />}>

@@ -66,7 +66,7 @@ function Account() {
                         imageSrc="images/account/lock.png"
                         title="Login & Security"
                         description="Edit email, username, and password"
-                        to="/"
+                        to="/profile"
                     />
 
                     <AccountItem
