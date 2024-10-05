@@ -5,46 +5,57 @@ import errorHandler from "../utils/ErrorHandler.js";
 
 const addProduct = async (req, res, next) => {
   const {
-    sellerId,
     title,
     description,
     price,
     offer,
     discountedPrice,
     category,
+    subCategory,
     stock,
     productImages,
   } = req.body;
 
-  if (
-    !sellerId ||
-    !title ||
-    !description ||
-    !price ||
-    !offer ||
-    !category ||
-    !stock ||
-    !productImages
-  ) {
+  if (!title || !description || !price || !category || !subCategory || !stock) {
     return next(errorHandler(400, "Enter all details to add the product"));
   }
 
-  const seller = await Seller.findById(sellerId);
+  if (productImages.length === 0) {
+    return next(errorHandler(400, "Upload atleast one image"))
+  }
+
+  if (offer) {
+    if (!discountedPrice) {
+      return next(errorHandler(400, "Enter discounted price"))
+    }
+    if (discountedPrice > price) {
+      return next(errorHandler(400, "Discounted price cannot be greater than original price"))
+    }
+  }
+
+  const seller = await Seller.findOne({ userId: req.user.id });
   if (!seller) {
     return next(errorHandler(404, "Seller not found."));
   }
+  const sellerId = seller._id;
 
-  const product = await Product.create({
+
+  const productData = {
     sellerId,
     title,
     description,
     price,
     offer,
-    discountedPrice,
     category,
+    subCategory,
     stock,
     productImages,
-  });
+  };
+  if (offer) {
+    productData.discountedPrice = discountedPrice;
+  }
+
+  const product = await Product.create(productData);
 
   if (!product) {
     return next(
@@ -104,7 +115,7 @@ const deleteProduct = async (req, res, next) => {
     }
 
     const product = await Product.findById(productId)
-    if(!product){
+    if (!product) {
       return next(errorHandler(404, "Product not found"));
     }
 

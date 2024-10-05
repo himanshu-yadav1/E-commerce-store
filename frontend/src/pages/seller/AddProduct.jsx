@@ -239,9 +239,46 @@ function AddProduct() {
     };
 
 
-    const handleSubmit = (e) => {
+    const handleAddProduct = async (e) => {
         e.preventDefault();
-        console.log('Product submitted:', product);
+
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/product/add`, {
+            method: "POST",
+            credentials: 'include',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(product),
+        })
+            .then((resp) => {
+                return resp.json()
+            })
+            .then((data) => {
+                if (data.success == false) {
+                    window.alert(data.message)
+                    return
+                }
+
+                setProduct(
+                    {
+                        title: '',
+                        description: '',
+                        price: '',
+                        offer: false,
+                        discountedPrice: '',
+                        category: 'Clothing',
+                        subCategory: 'others',
+                        stock: '',
+                        productImages: [],
+                    }
+                )
+
+                setFiles([])
+                setUploadError('')
+                window.alert(data.message)
+
+            })
+            .catch((error) => {
+                window.alert("Error occurred while adding product.", error)
+            })
     };
 
 
@@ -250,7 +287,7 @@ function AddProduct() {
         <div className="bg-mainBgColor py-mainPaddingY px-mainPaddingX">
             <div className="bg-cardBg py-cardPaddingY px-cardPaddingX shadow-cardShadow border-cardBorderTop rounded-cardBorderRadius p-6">
                 <h2 className="text-2xl font-semibold mb-4">Add Product</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleAddProduct}>
                     <div className="flex flex-col mb-4">
                         <label
                             className="text-gray-500 text-sm font-semibold relative top-2 ml-[9px] px-[6px] bg-white w-fit"
@@ -504,7 +541,8 @@ function AddProduct() {
 
                     <div className='flex justify-end'>
                         <button
-                            type="submit"
+                            type="button"
+                            onClick={handleAddProduct}
                             className="mt-4 uppercase cursor-pointer transition-all text-white px-[13px] py-[6px] rounded-md border border-[#F7AF9D] bg-[#F7AF9D] hover:bg-[#f99279] active:brightness-90"
                         >
                             Add Product
