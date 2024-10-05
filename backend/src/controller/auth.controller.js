@@ -79,7 +79,11 @@ const signIn = async (req, res, next) => {
 
     res
       .status(200)
-      .cookie("access_token", token, { httpOnly: true })
+      .cookie("access_token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None'
+      })
       .json({ user, message: "Login successfull" });
   } catch (error) {
     next(error);

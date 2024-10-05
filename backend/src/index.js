@@ -16,7 +16,23 @@ import orderRouter from './routes/order.routes.js'
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+
+const allowedOrigins = [
+    'https://swift-store-backend.vercel.app',
+    'http://localhost:5173'
+];
+
+app.use(cors({
+    origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+}));
+
 app.use(cookieParser())
 
 app.use('/api/v1/user', userRouter)
@@ -43,9 +59,9 @@ app.use((error, req, res, next) => {
 })
 
 connectDB()
-.then(() => {
-    app.listen(process.env.PORT, () => {
-        console.log(`listing on http://localhost:${process.env.PORT}`)
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log(`listing on http://localhost:${process.env.PORT}`)
+        })
     })
-})
 
