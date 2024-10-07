@@ -18,7 +18,7 @@ const app = express()
 app.use(express.json())
 
 const allowedOrigins = [
-    'https://swift-store-backend.vercel.app',
+    'https://swift-store-five.vercel.app',
     'http://localhost:5173'
 ];
 
